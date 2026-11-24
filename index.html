@@ -1,0 +1,334 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>학습마당 강사 안내</title>
+<meta name="description" content="강사·튜터를 위한 학습마당 사용 안내">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* 레이아웃: 왼쪽 목차(넓은 화면에서 붙어 따라옴) + 본문 한 단. 휴대폰에서는 목차가 위로 올라간다. */
+:root {
+  --bg: #fbfaf9;
+  --surface: #ffffff;
+  --fg: #141110;
+  --muted: #4f4845;
+  --line: #ebe5e2;
+  --soft: #f5f0ee;
+  --accent: #e42019;
+  --accent-soft: #fdeceb;
+  --ok: #157a4a;
+  --ok-soft: #e6f4ec;
+  --font-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Consolas", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161312; --surface: #1f1b1a; --fg: #f6f2f0; --muted: #c4bcb8; --line: #332d2b; --soft: #2a2423;
+    --accent: #ff5a4c; --accent-soft: #3a1c19; --ok: #5fcf96; --ok-soft: #173326; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161312; --surface: #1f1b1a; --fg: #f6f2f0; --muted: #c4bcb8; --line: #332d2b; --soft: #2a2423;
+  --accent: #ff5a4c; --accent-soft: #3a1c19; --ok: #5fcf96; --ok-soft: #173326; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.8; font-weight: 400;
+  word-break: keep-all; overflow-wrap: anywhere;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 1120px; margin: 0 auto;
+  padding-inline: 20px; padding-block: 48px 96px;
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px;
+}
+@media (max-width: 860px) { .page { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 28px 72px; } }
+
+/* 목차 */
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 32px); align-self: start; font-size: 15px; }
+nav.toc .brand { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+nav.toc .brand i { width: 10px; height: 10px; border-radius: 3px; background: var(--accent); display: inline-block; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: toc; }
+nav.toc a {
+  display: flex; gap: 10px; padding: 6px 10px; border-radius: 8px; color: var(--muted); text-decoration: none;
+  counter-increment: toc;
+}
+nav.toc a::before { content: counter(toc); font-family: var(--font-mono); font-size: 12px; color: var(--muted); opacity: .7; padding-top: 2px; min-width: 14px; }
+nav.toc a:hover { background: var(--soft); color: var(--fg); }
+@media (max-width: 860px) {
+  nav.toc { position: static; }
+  nav.toc ol { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+
+main { min-width: 0; max-width: 720px; }
+h1 { font-size: clamp(28px, 4vw, 36px); line-height: 1.3; letter-spacing: -0.02em; margin: 0 0 12px; text-wrap: balance; }
+.lead { font-size: 19px; color: var(--muted); margin: 0; }
+h2 {
+  font-size: 22px; letter-spacing: -0.01em; line-height: 1.4; margin: 0 0 16px; text-wrap: balance;
+  scroll-margin-top: 24px;
+}
+h3 { font-size: 17px; margin: 28px 0 8px; }
+section { padding-top: 56px; margin-top: 56px; border-top: 1px solid var(--line); }
+section:first-of-type { border-top: 0; margin-top: 40px; padding-top: 0; }
+p { margin: 0 0 14px; }
+ul, ol.steps { margin: 0 0 14px; padding-left: 22px; }
+li { margin: 4px 0; }
+strong { font-weight: 700; }
+kbd {
+  font-family: var(--font-mono); font-size: 13px; padding: 1px 7px; border-radius: 6px;
+  border: 1px solid var(--line); border-bottom-width: 2px; background: var(--surface);
+}
+code { font-family: var(--font-mono); font-size: 14px; background: var(--soft); padding: 1px 6px; border-radius: 5px; }
+
+/* 접속 주소 카드: 이 문서에서 가장 중요한 것 */
+.access {
+  margin-top: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: 22px 24px; display: grid; gap: 14px;
+}
+.access .label { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
+.url-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.url {
+  font-family: var(--font-mono); font-size: clamp(17px, 2.6vw, 22px); color: var(--fg); text-decoration: none;
+  border-bottom: 2px solid var(--accent); padding-bottom: 1px; min-width: 0; overflow-wrap: anywhere;
+}
+.url:hover { color: var(--accent); }
+button.copy {
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--soft); color: var(--fg);
+}
+button.copy:hover { border-color: var(--accent); color: var(--accent); }
+button.copy:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.copy.done { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
+.access .note { font-size: 15px; color: var(--muted); margin: 0; }
+
+/* 순서가 있는 절차 */
+ol.steps { list-style: none; padding: 0; counter-reset: step; display: grid; gap: 12px; }
+ol.steps > li {
+  counter-increment: step; position: relative; padding: 14px 16px 14px 52px; margin: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+}
+ol.steps > li::before {
+  content: counter(step); position: absolute; left: 16px; top: 14px;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff;
+  font-size: 13px; font-weight: 700; display: grid; place-items: center; line-height: 1;
+}
+ol.steps > li strong { display: block; }
+ol.steps > li span { color: var(--muted); font-size: 16px; }
+
+/* 보드 섹션 그림 */
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
+.tab { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; }
+.tab.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.tab small { opacity: .7; margin-left: 4px; }
+
+/* 할 수 있는 일 표 */
+.table-wrap { overflow-x: auto; margin: 8px 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 520px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 14px; color: var(--muted); font-weight: 700; background: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.how { color: var(--muted); }
+
+/* 짧은 안내 상자 */
+.tip { background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; margin: 16px 0; font-size: 16px; }
+.tip strong { color: var(--accent); margin-right: 6px; }
+.ok { background: var(--ok-soft); }
+.ok strong { color: var(--ok); }
+
+/* 문제 해결 */
+details { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 10px; }
+summary { cursor: pointer; padding: 14px 16px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--muted); font-weight: 400; }
+details[open] summary::after { content: "−"; }
+details > div { padding: 0 16px 14px; color: var(--fg); }
+details > div p:last-child, details > div ul:last-child { margin-bottom: 0; }
+
+footer { margin-top: 64px; font-size: 15px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<div class="page">
+  <nav class="toc" aria-label="목차">
+    <div class="brand"><i aria-hidden="true"></i>학습마당 강사 안내</div>
+    <ol>
+      <li><a href="#login">로그인</a></li>
+      <li><a href="#find">내 보드 찾기</a></li>
+      <li><a href="#before">수업 전 준비</a></li>
+      <li><a href="#learners">교육생 입장</a></li>
+      <li><a href="#board">보드 구성</a></li>
+      <li><a href="#can">강사 기능</a></li>
+      <li><a href="#help">자주 묻는 질문</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <h1>학습마당 사용 안내</h1>
+    <p class="lead">교육생이 실습 결과물을 올리는 보드입니다.<br>강사·튜터는 배정된 회차의 보드를 관리합니다.</p>
+
+    <div class="access">
+      <div class="label">접속 주소</div>
+      <div class="url-row">
+        <a class="url" href="https://b2b-board.spartaclub.kr" target="_blank" rel="noopener" id="site-url">b2b-board.spartaclub.kr</a>
+        <button class="copy" type="button" data-copy="https://b2b-board.spartaclub.kr" id="copy-site">주소 복사</button>
+      </div>
+    </div>
+
+    <section id="login">
+      <h2>로그인</h2>
+      <ol class="steps">
+        <li><strong>위 주소로 접속합니다.</strong></li>
+        <li><strong>"강사 · 교육 담당자"를 누릅니다.</strong></li>
+        <li><strong>axhub에 등록된 이메일을 입력합니다.</strong><span>비밀번호는 없습니다.</span></li>
+      </ol>
+      <div class="tip"><strong>주의</strong> 보드 주소로 들어와도 같은 화면이 나옵니다.<br>"교육생"을 누르면 교육생으로 들어가게 되니 주의해 주세요.</div>
+      <p>axhub에서 회차에 배정되면 1시간 안에 그 회차 보드가 보입니다.</p>
+    </section>
+
+    <section id="find">
+      <h2>내 보드 찾기</h2>
+      <p>교육 → 회차 → (분반) 순서로 들어갑니다.</p>
+      <ul>
+        <li>반을 나눈 회차는 담당 반을 고릅니다.</li>
+        <li>회차에 속하지 않은 보드(Q&amp;A 등)는 교육 화면 위쪽에 있습니다.</li>
+        <li>여러 날 진행하는 회차도 보드는 하나입니다. 날짜별로 나누려면 섹션을 만들어 주세요.</li>
+      </ul>
+      <p><strong>URL 복사</strong>를 누르면 보드 주소가 복사됩니다.<br>주소가 숫자 7자리(<code>b2b-board.spartaclub.kr/4820391</code>)라 칠판에 적어도 됩니다.</p>
+    </section>
+
+    <section id="before">
+      <h2>수업 전 준비</h2>
+      <ol class="steps">
+        <li><strong>담당 회차의 보드를 엽니다.</strong><span>보드가 안 보이면 운영 매니저에게 알려 주세요.</span></li>
+        <li><strong>입장 비밀번호를 확인합니다.</strong><span>교육 화면 제목 옆 "입장 비밀번호"를 누르면 보입니다.<br>보드 화면에는 나오지 않습니다.</span></li>
+        <li><strong>교안 링크를 확인합니다.</strong><span>보통 자동으로 올라와 있습니다. 없으면 직접 올려 주세요.</span></li>
+        <li><strong>필요한 섹션을 추가합니다.</strong><span>섹션 탭 끝의 "+ 섹션"을 누릅니다. 예: "1일차 실습", "프롬프트 공유"</span></li>
+        <li><strong>교육생에게 보드 주소와 비밀번호를 알려 줍니다.</strong><span>비밀번호는 주소와 따로, 말이나 칠판으로 알려 주세요.</span></li>
+      </ol>
+      <div class="tip ok"><strong>여러 회차를 맡았다면</strong> 한 보드를 정리한 뒤 "보드 관리 → 다른 회차로 복제"를 쓰세요.<br>섹션과 고정 게시물이 다른 회차 보드로 복사됩니다.</div>
+    </section>
+
+    <section id="learners">
+      <h2>교육생 입장</h2>
+      <p>교육생은 가입 없이 보드 주소로 들어옵니다.</p>
+      <ol class="steps">
+        <li><strong>보드 주소로 접속합니다.</strong></li>
+        <li><strong>"교육생"을 누릅니다.</strong></li>
+        <li><strong>개인정보 동의 내용을 끝까지 내리고 "동의하기"를 누릅니다.</strong></li>
+        <li><strong>이름(실명)과 입장 비밀번호를 넣고 "참여하기"를 누릅니다.</strong></li>
+      </ol>
+      <ul>
+        <li>입장 비밀번호는 교육마다 하나입니다. 모든 회차·분반이 같습니다.</li>
+        <li>같은 기기·같은 브라우저로 다시 오면 바로 들어옵니다.</li>
+        <li>다른 기기나 시크릿 창으로 오면 새 사람으로 들어와, 전에 올린 글을 고칠 수 없습니다.</li>
+        <li>공용 PC에 앞 사람 이름이 남아 있으면 오른쪽 위 이름 → "다른 사람으로 참여"를 누릅니다.</li>
+      </ul>
+    </section>
+
+    <section id="board">
+      <h2>보드 구성</h2>
+      <p>새 보드에는 세 섹션이 기본으로 있습니다.</p>
+      <div class="tabs" aria-hidden="true">
+        <span class="tab on">교안</span>
+        <span class="tab">질문 게시판</span>
+        <span class="tab">설문 조사</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>섹션</th><th>용도</th></tr></thead>
+          <tbody>
+            <tr><td><strong>교안</strong></td><td>노션 교안 링크와 수업 자료</td></tr>
+            <tr><td><strong>질문 게시판</strong></td><td>교육생의 질문과 결과물</td></tr>
+            <tr><td><strong>설문 조사</strong></td><td>사전 설문·만족도 설문 링크</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>섹션 이름은 바꾸거나 지울 수 있습니다.<br>자동으로 올라온 교안·설문 링크도 고치거나 지워도 됩니다.</p>
+    </section>
+
+    <section id="can">
+      <h2>강사 기능</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>기능</th><th>사용 방법</th></tr></thead>
+          <tbody>
+            <tr><td>자료 올리기</td><td class="how">"자료 올리기"를 누르거나 파일을 보드에 끌어다 놓습니다. 파일당 300MB까지.</td></tr>
+            <tr><td>캡처 올리기</td><td class="how">캡처한 뒤 보드에서 <kbd>Ctrl</kbd>+<kbd>V</kbd></td></tr>
+            <tr><td>상단 고정</td><td class="how">강사 글은 자동으로 맨 앞에 고정됩니다. 교육생 글은 카드 메뉴(…) → "상단 고정"</td></tr>
+            <tr><td>고정 순서 바꾸기</td><td class="how">고정된 카드를 끌어서 옮깁니다.</td></tr>
+            <tr><td>여러 장 한 번에</td><td class="how">"보드 관리 → 카드 여러 장 선택"에서 고정·해제·삭제</td></tr>
+            <tr><td>섹션 관리</td><td class="how">"보드 관리"에서 이름 변경·삭제. 섹션을 지우면 안의 글도 지워집니다.</td></tr>
+            <tr><td>글·댓글 삭제</td><td class="how">교육생 글도 카드 메뉴(…)에서 지울 수 있습니다.</td></tr>
+            <tr><td>다른 회차로 복제</td><td class="how">"보드 관리 → 다른 회차로 복제"</td></tr>
+            <tr><td>다른 회차 결과물</td><td class="how">보드 제목 옆 "다른 회차 결과물 보기". 같은 교육 모든 회차의 결과물을 모아 봅니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="help">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>"등록되지 않은 이메일"이라고 나옵니다</summary>
+        <div><p>axhub에 등록된 이메일인지 확인해 주세요.<br>배정 직후라면 최대 1시간 뒤에 반영됩니다. 급하면 운영 매니저에게 요청해 주세요.</p></div>
+      </details>
+      <details>
+        <summary>교육생이 들어오지 못합니다</summary>
+        <div>
+          <ul>
+            <li><strong>"비밀번호가 맞지 않아요"</strong> 대소문자와 특수문자까지 다시 확인해 주세요.</li>
+            <li><strong>"잠시 막혔어요"</strong> 여러 번 틀린 경우입니다. 10분쯤 뒤에 다시 시도해 주세요.</li>
+            <li><strong>"참여하기"가 안 눌림</strong> 동의 내용을 끝까지 내리고 "동의하기"를 먼저 눌러야 합니다.</li>
+            <li><strong>"숫자를 다시 확인해 주세요"</strong> 보드 주소 7자리를 다시 확인해 주세요.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>교육생이 자기 글을 고칠 수 없다고 합니다</summary>
+        <div><p>글을 올릴 때와 다른 기기·브라우저로 들어온 경우입니다.<br>처음 쓴 기기로 다시 들어오게 해 주세요. 급하면 강사가 지우고 다시 올리게 하면 됩니다.</p></div>
+      </details>
+      <details>
+        <summary>파일이 올라가지 않습니다</summary>
+        <div><p>창에 쓴 내용은 남아 있으니 "다시 시도"를 눌러 주세요.<br>파일당 300MB까지 올릴 수 있습니다.</p></div>
+      </details>
+      <details>
+        <summary>교안 링크가 없습니다</summary>
+        <div><p>axhub에 교안이 등록되지 않은 교육입니다. 교안 섹션에 직접 올려 주세요.</p></div>
+      </details>
+      <details>
+        <summary>입장 비밀번호를 바꾸고 싶습니다</summary>
+        <div><p>강사는 바꿀 수 없습니다. 운영 매니저에게 요청해 주세요.</p></div>
+      </details>
+    </section>
+
+  </main>
+</div>
+
+<script>
+document.querySelectorAll("button.copy").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var text = btn.getAttribute("data-copy");
+    var done = function () {
+      btn.textContent = "복사됨";
+      btn.classList.add("done");
+      setTimeout(function () { btn.textContent = "주소 복사"; btn.classList.remove("done"); }, 1800);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, function () { selectUrl(); });
+    } catch (e) { selectUrl(); }
+  });
+});
+function selectUrl() {
+  var el = document.getElementById("site-url");
+  var range = document.createRange();
+  range.selectNodeContents(el);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+</script>
+
+
+</body></html>
